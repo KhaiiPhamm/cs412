@@ -1,0 +1,29 @@
+<!--
+    File: show_all.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 9/16/2026
+    Description: Template for displaying all Nelson Mandela quotes and pictures.
+-->
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="content">
+    <header>
+        <h1> All Nelson Mandela Quotes & Pictures</h1>
+    </header>
+
+    <h2>All Nelson Mandela Quotes</h2>
+    <ul class="quote-list">
+        {% for quote in quotes %}
+        <li>{{ quote }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2> All Nelson Mandela Pictures</h2>
+    <ul class="image-list">
+        {% for image in images %}
+        <li><img src="{{ image }}" alt="Picture of Nelson Mandela"></li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

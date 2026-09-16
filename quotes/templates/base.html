@@ -1,0 +1,28 @@
+<!--
+    File: base.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 9/16/2026
+    Description: Base template for the Nelson Mandela quotes application.
+-->
+
+{% load static %}
+<html>
+
+<head>
+    <title>Nelson Mandela's Quotes</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'quote' %}">Quote of the Day</a></li>
+            <li><a href="{% url 'show_all' %}">Show All</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+        </ul>
+
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>

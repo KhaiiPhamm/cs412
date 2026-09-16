@@ -1,0 +1,18 @@
+<!--
+    File: quote.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 9/16/2026
+    Description: Template for displaying a single Nelson Mandela quote.
+-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+    <header>
+        <h1>Nelson Mandela Quote of the Day</h1>
+    </header>
+    <h3>{{ quote }}</h3>
+    <img src="{{ image }}" alt="Picture of Nelson Mandela">
+</div>
+
+{% endblock %}
