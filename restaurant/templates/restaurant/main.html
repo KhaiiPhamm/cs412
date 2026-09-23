@@ -1,0 +1,31 @@
+<!--
+    File: main.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 9/23/2026
+    Description: Template for introducing the restaurant to viewer and showing the location, hours of the restaurant.
+-->
+{% extends 'restaurant/base.html' %}
+{% block content %}
+<div class="content">
+    <head>
+        <h2>Welcome to Pho's Viets</h2>
+    </head>
+    <div>
+        <img src="https://platform.boston.eater.com/wp-content/uploads/sites/4/chorus/uploads/chorus_asset/file/22771537/Pho_Viets___Karen_Wilber.jpg?quality=90&strip=all&crop=0,0,100,100" alt="Picture of Pho's Viet">
+        <p>Welcome to Pho Viet's, best restaurant for Vietnamese food</p>
+        <p>Located at: 1022 Commonwealth Ave, Boston, MA 02215</p>
+        <table>
+            <tr> 
+                <th>Mon., Wed., Thurs., Sun.</th>
+                <th>Fri., Sat.</th>
+                <th>Tues.</th>
+            </tr>
+            <tr>
+                <th>11AM - 8PM</th>
+                <th>11AM - 8:30PM </th>
+                <th>CLOSED</th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+{% endblock %} 

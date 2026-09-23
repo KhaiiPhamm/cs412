@@ -1,0 +1,27 @@
+<!--
+    File: base.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 9/23/2026
+    Description: Template for displaying information about restaurant of the best food itw.
+-->
+{% load static %}
+
+<html>
+    <head>
+        <title>Restaurant</title>
+        <link rel="stylesheet" href="{% static 'restaurant/style.css' %}">
+    </head>
+
+    <body>
+        <nav> 
+            <ul>
+                <li><a href="{% url 'main' %}">Main Page</a></li>
+                <li><a href="{% url 'order' %}">Order Page</a></li>
+            </ul>
+        </nav>
+
+    {% block content %}
+    {% endblock %}
+    </body>
+
+
+</html>

@@ -1,0 +1,57 @@
+<!--
+    File: order.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 9/23/2026
+    Description: Template for order form for user to choose food from.
+-->
+{% extends 'restaurant/base.html' %}
+
+{% block content %}
+<div class="content">
+
+    <h2>Place your order</h2>
+
+    <form action="{% url 'confirmation' %}" method="POST">
+        {% csrf_token %}
+        <h3>Select your item:</h3>
+
+        <input type="checkbox" name="item1" value="Lemongrass Pork with Vermicelli">
+        <label for="item1">Lemongrass Pork with Vermicelli $10.90</label><br>
+
+        <input type="checkbox" name="item2" value="Short Ribs with Rice">
+        <label for="item2">Short Ribs with Rice $12.50</label><br>
+
+        <input type="checkbox" name="item3" value="Diced Beef Fried Rice">
+        <label for="item3">Diced Beef Fried Rice $13.00</label><br>
+
+        <input type="checkbox" name="item4" value="Sliced Pork Noodle Soup">
+        <label for="item4">Sliced Pork Noodle Soup $10.20</label><br>
+        <label for="item4_size">Size for Soup:</label>
+        <select name="item4_size">
+            <option value="regular">Regular</option>
+            <option value="large">Large (+$2.00)</option>
+        </select><br>
+
+        <h3>Today's special:</h3>
+        <input type="checkbox" name="daily_special" value="{{daily_special}}">
+        <label for="daily_special">{{ daily_special }}</label>
+
+        <h3>Special Instructions</h3>
+        <label for="instructions">Please share any special instructions:</label><br>
+        <input type="text" name="instructions">
+
+        <h3>Customer Information</h3>
+        <label for="name">Name:</label><br>
+        <input type="text" name="name"><br>
+
+        <label for="phone">Phone:</label><br>
+        <input type="text" name="phone"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="text" name="email"><br>
+
+        <h3>Place your orderrr!</h3>
+
+        <input type="submit">
+    </form>
+</div>
+{% endblock %}

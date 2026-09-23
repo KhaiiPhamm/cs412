@@ -1,0 +1,155 @@
+/* General page styling */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navigation bar */
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #333;
+    padding-top: 30px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 16px;
+}
+
+nav a:hover {
+    background-color: #555;
+}
+
+/* Main content */
+.content {
+    max-width: 900px;
+    margin: 40px auto;
+    margin-left: 240px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h2 {
+    margin-top: 25px;
+}
+
+h3 {
+    margin-top: 25px;
+    line-height: 1.6;
+}
+
+/* Paragraphs */
+p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* Lists (order items, confirmation summary) */
+.content ul {
+    padding-left: 25px;
+}
+
+.content li {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+/* Images */
+.content img {
+    display: block;
+    max-width: 100%;
+    width: 500px;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 6px;
+}
+
+/* Hours table on main page */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    text-align: center;
+}
+
+table th {
+    padding: 12px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+}
+
+/* Order form */
+form {
+    margin-top: 20px;
+}
+
+form input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+form label {
+    font-size: 17px;
+}
+
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+form button,
+form input[type="submit"] {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form button:hover,
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Confirmation page total */
+.content h3 {
+    text-align: left;
+}
