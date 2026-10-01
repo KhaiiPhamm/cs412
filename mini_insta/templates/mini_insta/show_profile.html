@@ -1,0 +1,24 @@
+<!--
+    File: show_profile.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 9/30/2026
+    Description: Template shows singular user with username, profile pic, join date and bio.
+-->
+{% extends 'mini_insta/base.html' %}
+
+{% block content %}
+<h1>Showing User</h1>
+<main class="profile-page">
+    <section class="profile-header">
+        {% if profile.profile_image_url %}
+        <img src="{{ profile.profile_image_url }}" alt="{{ profile.username }}'s profile picture">
+        {% endif %}
+        <div class="profile-names">
+            <h2>{{ profile.username }}</h2>
+            <h3>{{ profile.display_name }}</h3>
+        </div>
+    </section>
+
+    <p class="profile-bio">{{ profile.bio_text }}</p>
+    <p class="profile-joined">Joined: {{ profile.join_date|date:"F j, Y" }}</p>
+</main>
+{% endblock %}

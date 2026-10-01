@@ -1,0 +1,31 @@
+<!--
+    File: show_all_profiles.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 9/30/2026
+    Description: Template shows all existing profiles in the data.
+-->
+{% extends 'mini_insta/base.html' %}
+
+{% block content %}
+
+<h1>Showing all Profiles</h1>
+<!-- scriptlet code to display the value of the variable `Profiles`  -->
+
+<main class="grid-container">
+
+    {% for profile in profiles %}
+
+    <article class="grid-item">
+        <h2>{{profile.username}}</h2>
+        {% if profile.profile_image_url %}
+        <a href="{% url 'show_profile' profile.pk %}">
+            <img src="{{profile.profile_image_url}}" alt="{{profile.profile_image_url}}">
+        </a>
+        {% endif %}
+
+        <h3>{{profile.display_name}}</h3>
+    </article>
+
+    {% endfor %}
+</main>
+
+{% endblock %}

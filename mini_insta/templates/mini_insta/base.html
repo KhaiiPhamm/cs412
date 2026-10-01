@@ -1,0 +1,21 @@
+<!--
+    File: base.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 9/30/2026
+    Description: Base template with title and footer.
+-->
+{% load static %}
+<html>
+    <head>
+        <title>Mini Insta</title>
+        <link rel="stylesheet" href="{% static 'mini_insta/style.css' %}">
+    </head>
+
+    <body>
+        {% block content %}
+        {% endblock %}
+
+    </body>
+    <footer>
+        <a href="{% url 'show_all_profiles' %}">Home</a>
+    </footer>
+</html>
