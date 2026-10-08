@@ -16,10 +16,13 @@
 
     <article class="grid-item">
         <h2>{{profile.username}}</h2>
+
         {% if profile.profile_image_url %}
         <a href="{% url 'show_profile' profile.pk %}">
-            <img src="{{profile.profile_image_url}}" alt="{{profile.profile_image_url}}">
+            <img src="{{ profile.profile_image_url }}" alt="{{profile.profile_image_url}}">
         </a>
+        {% else %}
+        <a href="{% url 'show_profile' profile.pk %}">View profile</a>
         {% endif %}
 
         <h3>{{profile.display_name}}</h3>

@@ -1,0 +1,26 @@
+<!--
+    File: show_post.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 9/30/2026
+    Description: Template shows a single post with its photos, caption, and timestamp.
+-->
+<!---show_post.html-->
+{% extends 'mini_insta/base.html' %}
+
+{% block content %}
+<h1>Showing Post</h1>
+<main class="post-page">
+    <div class="post-photos">
+        {% for photo in post.get_all_photos %}
+            {% if photo.get_image_url %}
+            <img src="{{ photo.get_image_url }}" alt="Photo by {{ post.profile.username }}">
+            {% else %}
+            <img src="https://mmt-am.com/wp-content/uploads/2022/12/no_Image.jpg" alt="No photo available">
+            {% endif %}
+        {% empty %}
+            <img src="https://mmt-am.com/wp-content/uploads/2022/12/no_Image.jpg" alt="No photo available">
+        {% endfor %}
+    </div>
+    <p class="post-caption">{{ post.caption }}</p>
+    <p class="post-timestamp">{{ post.timestamp}}</p>
+</main>
+{% endblock %}

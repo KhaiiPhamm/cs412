@@ -12,6 +12,8 @@
         {% if profile.profile_image_url %}
         <img src="{{ profile.profile_image_url }}" alt="{{ profile.username }}'s profile picture">
         {% endif %}
+
+
         <div class="profile-names">
             <h2>{{ profile.username }}</h2>
             <h3>{{ profile.display_name }}</h3>
@@ -20,5 +22,22 @@
 
     <p class="profile-bio">{{ profile.bio_text }}</p>
     <p class="profile-joined">Joined: {{ profile.join_date|date:"F j, Y" }}</p>
+
+    <div class="profile-posts">
+        <h2>Posts</h2>
+        <div class="post-grid">
+            {% for post in profile.get_all_posts %}
+            <article class = "post-card">
+                <a class = "post-card-image" href="{% url 'show_post' post.id %}">View Post</a>
+                {% if post.get_all_photos.first %}
+                <img src="{{ post.get_all_photos.first.get_image_url }}" alt="Photo by {{ post.profile.username }}">
+                {% else %}
+                <img src="https://mmt-am.com/wp-content/uploads/2022/12/no_Image.jpg" alt="No image">
+                {% endif %}
+                <p class = "post-card-caption">{{ post.caption }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
 </main>
 {% endblock %}

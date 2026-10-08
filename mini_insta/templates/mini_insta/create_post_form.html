@@ -1,0 +1,29 @@
+<!--
+    File: create_post_form.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 9/30/2026
+    Description: Template shows the form to create a new post.
+-->
+<!----create_post_form.html---->
+{% extends 'mini_insta/base.html' %}
+
+{% block content %}
+<h1>Create a New Post</h1>
+<main class="form-page">
+<form method="POST" action="{% url 'create_post' profile.pk %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <!-- <th><label for="image_url">Image URL:</label></th>
+            <td><input type="url" name="image_url" id="image_url" placeholder="Enter image URL"></td> -->
+            <th><label for="image_file">Image File:</label></th>
+            <td><input type="file" name="image_file" id="image_file" multiple></td>
+        </tr>
+    </table>
+    <div class="form-actions">
+    <button type="submit">Create Post</button>
+    <a href="{% url 'show_profile' profile.pk %}">Cancel</a>
+    </div>
+</form>
+</main>
+{% endblock %}
