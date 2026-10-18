@@ -1,0 +1,384 @@
+html, body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  color: #000000;
+  font-size: 1rem;
+}
+
+body > h1 {
+  text-align: center;
+  margin: 24px 0 16px;
+  font-size: 2rem;
+  color: #000000;
+}
+
+main {
+  flex: 1;
+  padding: 16px 24px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 16px 24px;
+  background: #000000;
+}
+
+footer a {
+  color: #FFFFFF;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ---------- show_all: grid of cards ---------- */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 320px);
+  justify-content: center;
+  align-content: center;
+  gap: 24px;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* header section */
+.grid-item h2 {
+  margin: 0;
+  padding: 16px;
+  min-height: 2.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  background: #000000;
+  border-bottom: 2px solid #000000;
+}
+
+/* image section */
+.grid-item a {
+  display: block;
+  padding: 16px;
+  background: #FFFFFF;
+  border-bottom: 2px solid #000000;
+}
+
+.grid-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+/* text section */
+.grid-item h3 {
+  margin: 0;
+  padding: 16px;
+  font-size: 1rem;
+  color: #000000;
+}
+
+/* ---------- centered page layouts: profile, post, create post ---------- */
+/* .feed-page added for feed + search results */
+.profile-page,
+.post-page,
+.form-page,
+.feed-page {
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* ---------- show_profile ---------- */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.profile-header img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  border-radius: 12px;
+}
+
+.profile-names h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #000000;
+}
+
+.profile-names h3 {
+  margin: 16px 0 0;
+  font-size: 1.25rem;
+  color: #000000;
+}
+
+.profile-bio {
+  margin: 24px 0 16px;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 600;
+  color: #000000;
+}
+
+.profile-joined {
+  margin: 0;
+  font-size: 1rem;
+  color: #000000;
+}
+
+/* posts on the profile page */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.post-card {
+  border: 2px solid #000000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.post-card-image {
+  display: block;
+  padding: 12px;
+  border-bottom: 2px solid #000000;
+}
+
+/* every thumbnail is the same square, however big the original is */
+.post-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.post-card-caption {
+  margin: 0;
+  padding: 12px;
+}
+
+/* ---------- show_post ---------- */
+.post-photos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.post-photos img {
+  max-width: 100%;
+  max-height: 480px;
+}
+
+/* ---------- create_post_form ---------- */
+.form-page th {
+  padding: 8px 12px 8px 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.form-page td {
+  padding: 8px 0;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 0 16px 16px 0;
+  color: #000000;
+}
+
+.post {
+  margin-bottom: 24px;
+  padding: 16px;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  background: #FFFFFF;
+}
+
+.post p {
+  margin: 8px 0;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 2px solid #000000;
+  border-radius: 50%;
+}
+
+.post-photo {
+  display: block;
+  max-width: 100%;
+  max-height: 480px;
+  margin: 8px 0;
+}
+
+.likes {
+  font-weight: 600;
+}
+
+/* also used by show_post.html */
+.comment {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+.comment-timestamp {
+  color: #555555;
+  font-size: 0.8rem;
+}
+
+/* ---------- search ---------- */
+.search-form {
+  display: flex;
+  gap: 12px;
+}
+
+.search-form input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+}
+
+.results-heading {
+  margin: 24px 0 8px;
+  font-weight: 600;
+}
+
+.result-list {
+  margin: 0 0 16px;
+  padding-left: 24px;
+}
+
+/* ---------- followers / following ---------- */
+.profile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #000000;
+}
+
+.profile-list img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border: 2px solid #000000;
+  border-radius: 50%;
+}
+
+/* ---------- delete_post_form / update_post_form ---------- */
+/* forms inside .form-actions sit side by side; buttons share one look */
+.form-actions form {
+  margin: 0;
+}
+
+.form-actions button {
+  padding: 8px 16px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #000000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-actions button:hover {
+  background: #000000;
+  color: #FFFFFF;
+}
+
+/* shared button look: <button> and <a class="button"> */
+.button,
+.form-actions button {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #000000;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover,
+.form-actions button:hover {
+  background: #000000;
+  color: #FFFFFF;
+}
+
+/* ---------- profile stat boxes ---------- */
+.profile-stats {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  padding: 8px 16px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  color: #000000;
+  text-decoration: none;
+}
+
+a.stat-box:hover {
+  background: #000000;
+  color: #FFFFFF;
+}
+
+.stat-number {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+}
