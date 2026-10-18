@@ -1,0 +1,24 @@
+<!--
+    File: update_post_form.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 10/17/2026
+    Description: Template shows the form to update a post.
+-->
+{% extends "mini_insta/base.html" %}
+
+{% block content %}
+<main class="form-page">
+    <h1>Update Post</h1>
+
+    <div class="form-actions">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save changes</button>
+        </form>
+
+        <form method="get" action="{% url 'show_post' object.pk %}">
+            <button type="submit">Cancel</button>
+        </form>
+    </div>
+</main>
+{% endblock %}

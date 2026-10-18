@@ -20,7 +20,18 @@
             <img src="https://mmt-am.com/wp-content/uploads/2022/12/no_Image.jpg" alt="No photo available">
         {% endfor %}
     </div>
+    <p class="post-likes">Liked by {{ post.get_likes|length }} users</p>
     <p class="post-caption">{{ post.caption }}</p>
-    <p class="post-timestamp">{{ post.timestamp}}</p>
+    {% for comment in post.get_all_comments %}
+        <div class="comment">
+            <p><strong>{{ comment.profile.username }}</strong>: {{ comment.text }}</p>
+            <p class="comment-timestamp">{{ comment.timestamp }}</p>
+        </div>
+    {% empty %}
+        <p>No comments yet.</p>
+    {% endfor %}
+    <p class="post-timestamp">Posted on {{ post.timestamp}}</p>
+    <a class = "button" href="{% url 'update_post' post.pk %}">Update Post</a>
+    <a class = "button" href="{% url 'delete_post' post.pk %}">Delete Post</a>
 </main>
 {% endblock %}

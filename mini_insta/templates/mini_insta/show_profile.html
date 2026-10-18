@@ -17,24 +17,40 @@
         <div class="profile-names">
             <h2>{{ profile.username }}</h2>
             <h3>{{ profile.display_name }}</h3>
+            <div class="profile-stats">
+                <div class="stat-box">
+                    <span class="stat-number">{{ profile.get_all_posts.count }}</span>
+                    <span class="stat-label">Posts</span>
+                </div>
+                <a class="stat-box" href="{% url 'show_followers' profile.pk %}">
+                    <span class="stat-number">{{ profile.get_num_followers }}</span>
+                    <span class="stat-label">Followers</span>
+                </a>
+                <a class="stat-box" href="{% url 'show_following' profile.pk %}">
+                    <span class="stat-number">{{ profile.get_num_following }}</span>
+                    <span class="stat-label">Following</span>
+                </a>
+            </div>
         </div>
     </section>
 
     <p class="profile-bio">{{ profile.bio_text }}</p>
     <p class="profile-joined">Joined: {{ profile.join_date|date:"F j, Y" }}</p>
-
+    <div class ="form-actions">
+        <a class="button" href="{% url 'update_profile' profile.pk %}">Update Profile</a>
+    </div>
     <div class="profile-posts">
         <h2>Posts</h2>
         <div class="post-grid">
             {% for post in profile.get_all_posts %}
-            <article class = "post-card">
-                <a class = "post-card-image" href="{% url 'show_post' post.id %}">View Post</a>
+            <article class="post-card">
+                <a class="post-card-image" href="{% url 'show_post' post.pk %}">View Post</a>
                 {% if post.get_all_photos.first %}
                 <img src="{{ post.get_all_photos.first.get_image_url }}" alt="Photo by {{ post.profile.username }}">
                 {% else %}
                 <img src="https://mmt-am.com/wp-content/uploads/2022/12/no_Image.jpg" alt="No image">
                 {% endif %}
-                <p class = "post-card-caption">{{ post.caption }}</p>
+                <p class="post-card-caption">{{ post.caption }}</p>
             </article>
             {% endfor %}
         </div>

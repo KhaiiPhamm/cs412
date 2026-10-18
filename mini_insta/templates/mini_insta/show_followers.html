@@ -1,0 +1,21 @@
+<!--
+    File: show_followers.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 9/30/2026
+    Description: Template shows the list of followers for a user.
+-->
+
+{% extends 'mini_insta/base.html' %}
+
+{% block content %}
+<main class = "profile-page">
+    <h1>{{ profile.username }}'s Followers</h1>
+    <ul class = "profile-list">
+        {% for follower in profile.get_followers %}
+            <li>
+                <img src="{{ follower.profile_image_url }}" alt="Profile Picture" width="50" height="50">
+                <a href="{{ follower.get_absolute_url }}">{{ follower.username }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock %}

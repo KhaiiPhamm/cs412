@@ -1,0 +1,33 @@
+<!--
+    File: delete_post_form.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 10/17/2026
+    Description: Template shows the form to delete a post.
+-->
+{% extends "mini_insta/base.html" %}
+
+{% block content %}
+<main class = "form-page">
+<h1>Delete Post</h1>
+
+<div class="post">
+    <p><strong>{{ post.profile.username }}</strong></p>
+    <p>{{ post.caption }}</p>
+    {% for photo in post.get_all_photos %}
+        <img src="{{ photo.get_image_url }}" alt="Photo" width="200">
+    {% endfor %}
+</div>
+
+<p>Are you sure you want to delete this post?</p>
+
+<div class="form-actions">
+<form method="post" action="{% url 'delete_post' post.pk %}">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+</form>
+
+<form method="get" action="{% url 'show_profile' post.profile.pk %}">
+    <button type="submit">Cancel</button>
+</form>
+</div>
+</main>
+{% endblock %}

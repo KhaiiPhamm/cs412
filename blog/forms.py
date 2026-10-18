@@ -20,3 +20,10 @@ class CreateCommentForm(forms.ModelForm):
         model = Comment
         fields = ['author', 'text', ]  # which fields from model should we use
 
+class UpdateArticleForm(forms.ModelForm):
+    '''A form to update a quote to the database.'''
+ 
+    class Meta:
+        '''associate this form with the Article model.'''
+        model = Article
+        fields = ['title', 'text', ]  # which fields from model should we use

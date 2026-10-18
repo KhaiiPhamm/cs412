@@ -1,0 +1,27 @@
+<!--
+    File: update_profile_form.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 10/17/2026
+    Description: Template shows the form to update a profile.
+-->
+{% extends "mini_insta/base.html" %}
+
+{% block content %}
+<main class = "form-page">
+<h1>Update Profile</h1>
+
+<form method="post" action="{% url 'update_profile' profile.pk %}">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <th><label for="profile_image_file">Profile Image File:</label></th>
+        </tr>
+    </table>
+    <div class="form-actions">
+        <button type="submit">Update Profile</button>
+        <a class = "button" href="{% url 'show_profile' profile.pk %}">Cancel</a>
+    </div>
+</form>
+</main>
+
+{% endblock %}

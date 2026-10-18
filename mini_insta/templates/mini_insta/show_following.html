@@ -1,0 +1,21 @@
+<!--
+    File: show_following.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 9/30/2026
+    Description: Template shows the list of users that a user is following.
+-->
+
+{% extends 'mini_insta/base.html' %}
+
+{% block content %}
+<main class = "profile-page">
+    <h1>{{ profile.username }}'s Following</h1>
+    <ul class = "profile-list">
+        {% for following in profile.get_following %}
+            <li>
+                <img src="{{ following.profile_image_url }}" alt="Profile Picture" width="50" height="50">
+                <a href="{{ following.get_absolute_url }}">{{ following.username }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock %}

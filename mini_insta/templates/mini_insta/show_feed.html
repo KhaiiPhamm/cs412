@@ -1,0 +1,32 @@
+<!--
+    File: show_feed.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 10/17/2026
+    Description: Template shows the user's feed.
+-->
+{% extends 'mini_insta/base.html' %}
+
+{% block content %}
+<main class="feed-page">
+    <h1>{{ profile.username }}'s Feed</h1>
+    <a class="back-link" href="{% url 'show_all_profiles' %}">View All Profiles</a>
+    {% for post in profile.get_post_feed %}
+        <div class="post">
+            <a href="{{ post.profile.get_absolute_url }}">
+                <img class="profile-picture" src="{{ post.profile.profile_image_url }}" alt="Profile picture">
+            </a>
+            <p>{{ post.timestamp }}</p>
+            <p>{{ post.profile.username }} </p>
+            {% if post.get_all_photos.first %}
+                <img class="post-photo" src="{{ post.get_all_photos.first.get_image_url }}" alt="Post photo">
+            {% else %}
+            <img src="https://mmt-am.com/wp-content/uploads/2022/12/no_Image.jpg" alt="No photo available">
+            {% endif %}
+            <p>{{ post.caption }}</p>
+            <p class="likes">Likes: {{ post.get_likes|length }}</p>
+            {% for comment in post.get_all_comments %}
+                <p class="comment">{{ comment.profile.username }}: {{ comment.text }}</p>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</main>
+{% endblock %}

@@ -16,9 +16,11 @@
     {% endblock %}
 
     <footer>
-        <a href="{% url 'show_all_profiles' %}">Home</a>
         {% if profile %}
+        <a href="{% url 'show_feed' profile.pk %}">Home</a>
+        <a href="{% url 'search' profile.pk %}">Search</a>
         <a href="{% url 'create_post' profile.pk %}">Create Post</a>
+        <a href="{% url 'show_profile' profile.pk %}">Profile</a>
         {% endif %}
     </footer>
 </body>

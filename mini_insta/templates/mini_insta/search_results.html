@@ -1,0 +1,40 @@
+<!--
+    File: search_results.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 10/17/2026
+    Description: Template shows the search results.
+-->
+{% extends 'mini_insta/base.html' %}
+
+{% block content %}
+<h1>Search Results</h1>
+<p class = "results-heading">Profiles matching for your query "{{ query }}":</p>
+<ul class = "results-list">
+{% for profile in profiles %}
+    <li><a href="{% url 'show_profile' profile.pk %}">{{ profile.username }}</a></li>
+{% endfor %}
+</ul>
+
+{% if not profiles %}
+    <p>No profiles found.</p>
+{% endif %}
+
+<p class = "results-heading">Posts matching for your query "{{ query }}":</p>
+{% for post in posts %}
+    <div class="post">
+        <img class="profile-picture" src="{{ post.profile.profile_image_url }}" alt="Profile picture">
+        <p>{{ post.timestamp }}</p>
+        <p>{{ post.profile.username }} </p>
+        <img class="post-photo" src="{{ post.get_all_photos.first.get_image_url }}" alt="Post photo">
+        <p>{{ post.caption }}</p>
+        <p class="likes">Likes: {{ post.get_likes|length }}</p>
+        {% for comment in post.get_all_comments %}
+            <p class="comment">{{ comment.profile.username }}: {{ comment.text }}</p>
+        {% endfor %}
+    </div>
+{% endfor %}
+
+{% if not posts %}
+    <p>No posts found.</p>
+{% endif %}
+
+{% endblock %}
