@@ -1,48 +1,53 @@
 <!-- templates/article.html -->
- 
+
 {% extends 'blog/base.html' %}
 <h1>{{article.title}}</h1>
- 
+
 {% block content %}
 <main class="grid-container">
-    
+
     <article class="featured">
+        {% if article.image_file %}
         {% if article.image_file.url %}
-		<img src="{{article.image_file.url}}" alt="{{article.image_file.url}}">
-		{% endif %}
-        
+        <img src="{{article.image_file.url}}" alt="{{article.image_file.url}}">
+
+        {% endif %}
+        {% else %}
+        <img src="https://mmt-am.com/wp-content/uploads/2022/12/no_Image.jpg" alt="No photo available">
+        {% endif %}
+
         <div>
-        <h2>{{article.title}}</h2>
-        <strong>by {{article.author}} at {{article.published}}</strong>
-        <p>
-        {{article.text}}
-        </p>
+            <h2>{{article.title}}</h2>
+            <strong>by {{article.author}} at {{article.published}}</strong>
+            <p>
+                {{article.text}}
+            </p>
         </div>
     </article>
- 
- 
+
+
     <div>
-    <h2>Comments</h2>
- 
- 
-    <h3><a href="{% url 'update_article' article.pk %}">Update Article</a></h3>
-    <h3><a href="{% url 'create_comment' article.pk %}">Create a comment</a></h3>
- 
- 
-    <!-- Comments:
+        <h2>Comments</h2>
+
+
+        <h3><a href="{% url 'update_article' article.pk %}">Update Article</a></h3>
+        <h3><a href="{% url 'create_comment' article.pk %}">Create a comment</a></h3>
+
+
+        <!-- Comments:
     {{article.get_comments}} -->
- 
- 
-    {% for c in article.get_comments %}
-    <article>
-        <div>
-        <strong>by {{c.author}} at {{c.published}}</strong>
-        <p>
-        {{c.text}}
-        <a href="{% url 'delete_comment' c.pk %}">Delete</a> <!-- NEW -->
-        </div>
-    </article>
-    {% endfor %}
-</div>
+
+
+        {% for c in article.get_comments %}
+        <article>
+            <div>
+                <strong>by {{c.author}} at {{c.published}}</strong>
+                <p>
+                    {{c.text}}
+                    <a href="{% url 'delete_comment' c.pk %}">Delete</a> <!-- NEW -->
+            </div>
+        </article>
+        {% endfor %}
+    </div>
 </main>
 {% endblock %}

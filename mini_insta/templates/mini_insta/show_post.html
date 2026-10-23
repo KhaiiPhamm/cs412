@@ -11,27 +11,46 @@
 <main class="post-page">
     <div class="post-photos">
         {% for photo in post.get_all_photos %}
-            {% if photo.get_image_url %}
-            <img src="{{ photo.get_image_url }}" alt="Photo by {{ post.profile.username }}">
-            {% else %}
-            <img src="https://mmt-am.com/wp-content/uploads/2022/12/no_Image.jpg" alt="No photo available">
-            {% endif %}
+        {% if photo.get_image_url %}
+        <img src="{{ photo.get_image_url }}" alt="Photo by {{ post.profile.username }}">
+        {% else %}
+        <img src="https://mmt-am.com/wp-content/uploads/2022/12/no_Image.jpg" alt="No photo available">
+        {% endif %}
         {% empty %}
-            <img src="https://mmt-am.com/wp-content/uploads/2022/12/no_Image.jpg" alt="No photo available">
+        <img src="https://mmt-am.com/wp-content/uploads/2022/12/no_Image.jpg" alt="No photo available">
         {% endfor %}
     </div>
     <p class="post-likes">Liked by {{ post.get_likes|length }} users</p>
     <p class="post-caption">{{ post.caption }}</p>
     {% for comment in post.get_all_comments %}
-        <div class="comment">
-            <p><strong>{{ comment.profile.username }}</strong>: {{ comment.text }}</p>
-            <p class="comment-timestamp">{{ comment.timestamp }}</p>
-        </div>
+    <div class="comment">
+        <p><strong>{{ comment.profile.username }}</strong>: {{ comment.text }}</p>
+        <p class="comment-timestamp">{{ comment.timestamp }}</p>
+    </div>
     {% empty %}
-        <p>No comments yet.</p>
+    <p>No comments yet.</p>
     {% endfor %}
     <p class="post-timestamp">Posted on {{ post.timestamp}}</p>
-    <a class = "button" href="{% url 'update_post' post.pk %}">Update Post</a>
-    <a class = "button" href="{% url 'delete_post' post.pk %}">Delete Post</a>
+
+    {% if me and me != post.profile %}
+    <div class="form-actions">
+        {% if has_liked %}
+        <form method="post" action="{% url 'delete_like' post.pk %}">
+            {% csrf_token %}
+            <button type="submit">Unlike</button>
+        </form>
+        {% else %}
+        <form method="post" action="{% url 'like' post.pk %}">
+            {% csrf_token %}
+            <button type="submit">Like</button>
+        </form>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if post.profile.user == request.user %}
+    <a class="button" href="{% url 'update_post' post.pk %}">Update Post</a>
+    <a class="button" href="{% url 'delete_post' post.pk %}">Delete Post</a>
+    {% endif %}
 </main>
 {% endblock %}

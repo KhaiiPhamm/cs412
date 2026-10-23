@@ -1,0 +1,2 @@
+username = mini1
+password = mini1mini1

@@ -382,3 +382,93 @@ a.stat-box:hover {
 .stat-label {
   font-size: 0.85rem;
 }
+
+/* ================= NEW: auth pages, form fields, footer ================= */
+
+/* ---------- text inputs on form pages (login, register, update, search) ---------- */
+.form-page input[type="text"],
+.form-page input[type="password"],
+.form-page input[type="url"],
+.form-page input[type="email"] {
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  padding: 8px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.form-page textarea {
+  width: 100%;
+  min-height: 120px;
+  box-sizing: border-box;
+  padding: 8px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.form-page input:focus,
+.form-page textarea:focus {
+  outline: 3px solid #000000;
+  outline-offset: 2px;
+}
+
+/* ---------- form errors and help text (UserCreationForm is full of both) ---------- */
+.errorlist {
+  margin: 4px 0;
+  padding: 0;
+  list-style: none;
+  color: #B00020;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.helptext {
+  display: block;
+  margin-top: 4px;
+  color: #555555;
+  font-size: 0.8rem;
+}
+
+.form-page td ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  color: #555555;
+  font-size: 0.8rem;
+}
+
+/* ---------- footer: wraps on small screens, logout looks like a link ---------- */
+footer {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.logout-form {
+  margin: 0;
+}
+
+.logout-form button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---------- follow / like buttons sit under the profile or post ---------- */
+.profile-page .form-actions,
+.post-page .form-actions {
+  margin-bottom: 16px;
+}
+
+/* ---------- logged out page ---------- */
+.form-page p {
+  line-height: 1.6;
+}

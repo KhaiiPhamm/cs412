@@ -9,7 +9,7 @@
 {% block content %}
 <h1>Create a New Post</h1>
 <main class="form-page">
-<form method="POST" action="{% url 'create_post' profile.pk %}" enctype="multipart/form-data">
+<form method="POST" action="{% url 'create_post' %}" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
         {{ form.as_table }}
@@ -22,7 +22,7 @@
     </table>
     <div class="form-actions">
     <button type="submit">Create Post</button>
-    <a class = "button" href="{% url 'show_profile' profile.pk %}">Cancel</a>
+    <a class = "button" href="{% url 'show_my_profile' %}">Cancel</a>
     </div>
 </form>
 </main>

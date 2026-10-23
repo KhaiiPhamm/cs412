@@ -1,0 +1,23 @@
+<!--
+    File: create_profile_form.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 10/23/2026
+    Description: Template shows the form to create a profile.
+-->
+{% extends "mini_insta/base.html" %}
+
+{% block content %}
+<main class="form-page">
+    <h1>Create Profile</h1>
+
+    <form method="post" action="{% url 'create_profile' %}">
+        {% csrf_token %}
+        <table>
+            {{ user_form.as_table }}
+            {{ form.as_table }}
+        </table>
+        <div class="form-actions">
+            <button type="submit">Create Profile</button>
+        </div>
+    </form>
+</main>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!--
+    File: logout_confirmation.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 10/23/2026
+    Description: Template shows the logout confirmation.
+-->
+{% extends 'mini_insta/base.html' %}
+
+{% block content %}
+<main class="form-page">
+    <h1>Logged out</h1>
+    <p>You have been logged out.</p>
+    <div class="form-actions">
+        <a class="button" href="{% url 'login' %}">Log in again</a>
+        <a class="button" href="{% url 'show_all_profiles' %}">View all profiles</a>
+    </div>
+</main>
+{% endblock %}

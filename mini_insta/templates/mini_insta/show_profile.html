@@ -36,9 +36,28 @@
 
     <p class="profile-bio">{{ profile.bio_text }}</p>
     <p class="profile-joined">Joined: {{ profile.join_date|date:"F j, Y" }}</p>
-    <div class ="form-actions">
-        <a class="button" href="{% url 'update_profile' profile.pk %}">Update Profile</a>
+    
+    {% if me and me != profile %}
+    <div class="form-actions">
+        {% if is_following %}
+        <form method="post" action="{% url 'delete_follow' profile.pk %}">
+            {% csrf_token %}
+            <button type="submit">Unfollow</button>
+        </form>
+        {% else %}
+        <form method="post" action="{% url 'follow' profile.pk %}">
+            {% csrf_token %}
+            <button type="submit">Follow</button>
+        </form>
+        {% endif %}
     </div>
+    {% endif %}
+    
+    {% if profile.user == request.user %}
+    <div class="form-actions">
+        <a class="button" href="{% url 'update_profile' %}">Update Profile</a>
+    </div>
+    {% endif %}
     <div class="profile-posts">
         <h2>Posts</h2>
         <div class="post-grid">
