@@ -1,0 +1,30 @@
+<!--
+    File: base.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 10/30/2026
+    Description: Template for displaying voters info.
+-->
+{% load static %}
+<html>
+
+<head>
+    <title>Voter Analytics</title>
+    <link rel="stylesheet" href="{% static 'voter_analytics/styles.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>Voter Analytics</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'voters' %}">Voters</a></li>
+                <li><a href="{% url 'graphs' %}">Graphs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+</html>

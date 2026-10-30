@@ -1,0 +1,29 @@
+<!--
+    File: graphs.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 10/30/2026
+    Description: Template for displaying voters graph.
+-->{% extends 'voter_analytics/base.html' %}
+
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        {% include "voter_analytics/search.html" %}
+    </div>
+
+    <h1>Graphs</h1>
+
+    <div class="row">
+        {{ graph_div_birth|safe }}
+    </div>
+
+    <div class="row">
+        {{ graph_div_party|safe }}
+    </div>
+
+    <div class="row">
+        {{ graph_div_elections|safe }}
+    </div>
+
+</div>
+{% endblock %}

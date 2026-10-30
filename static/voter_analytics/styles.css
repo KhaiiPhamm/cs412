@@ -1,0 +1,189 @@
+html, body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+
+/* ---------- header and navigation ---------- */
+header {
+  background: #000000;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 12px;
+  font-size: 2rem;
+  color: #FFFFFF;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  color: #FFFFFF;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- page layout ---------- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+.container h1 {
+  margin: 24px 0 16px;
+  font-size: 1.5rem;
+}
+
+.row {
+  margin-bottom: 24px;
+}
+
+a {
+  color: #000000;
+}
+
+/* ---------- search form (search.html) ---------- */
+.row h1 {
+  margin: 0 0 12px;
+  font-size: 1.25rem;
+}
+
+form table {
+  width: 100%;
+  padding: 12px;
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+form th {
+  padding: 8px 8px 8px 0;
+  text-align: left;
+  white-space: nowrap;
+}
+
+form td {
+  padding: 8px 16px 8px 0;
+}
+
+select {
+  padding: 8px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  background: #FFFFFF;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+select:focus {
+  outline: 3px solid #000000;
+  outline-offset: 2px;
+}
+
+label {
+  display: inline-block;
+  margin-right: 16px;
+  font-weight: 600;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  accent-color: #000000;
+  vertical-align: middle;
+}
+
+input[type="submit"] {
+  padding: 8px 16px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #000000;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: #000000;
+  color: #FFFFFF;
+}
+
+/* ---------- pagination ---------- */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagination a {
+  font-weight: 600;
+}
+
+/* ---------- data tables (voter list and voter detail) ---------- */
+.row > table,
+.container > table {
+  width: 100%;
+  margin-bottom: 24px;
+  border-collapse: collapse;
+  border: 2px solid #000000;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.row > table th,
+.container > table th {
+  padding: 12px;
+  text-align: left;
+  background: #000000;
+  color: #FFFFFF;
+}
+
+.row > table td,
+.container > table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #000000;
+}
+
+.row > table tr:hover td,
+.container > table tr:hover td {
+  background: #EEEEEE;
+}
+
+/* ---------- graphs ---------- */
+.plotly-graph-div {
+  box-sizing: border-box;
+  padding: 8px;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
