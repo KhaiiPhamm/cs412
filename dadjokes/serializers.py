@@ -18,8 +18,6 @@ class JokeSerializer(serializers.ModelSerializer):
         
         # create a Joke obj
         joke = Joke(**validated_data)
-        # attach a FK for the User
-        joke.user = User.object.first()
         # save the obj to the database
         joke.save()
         # return an obj instance
