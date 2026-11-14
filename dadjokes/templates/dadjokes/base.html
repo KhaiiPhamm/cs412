@@ -1,0 +1,26 @@
+<!--
+    File: base.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 11/13/2026
+    Description: Base template for Dad Joke App
+-->
+{% load static %}
+<html>
+
+<head>
+    <title>My Dad Joke App</title>
+    <link rel="stylesheet" href="{% static 'dadjokes/styles.css' %}">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        {% block content %}
+        {% endblock %}
+        <footer>
+            <a href="{% url 'show_all_jokes' %}">Show All Jokes</a>
+            <a href="{% url 'show_all_pictures' %}">Show All Pictures</a>
+            <a href="{% url 'show_random' %}">Show Random</a>
+        </footer>
+</body>
+
+</html>

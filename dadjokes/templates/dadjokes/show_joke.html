@@ -1,0 +1,14 @@
+<!--
+    File: show_joke.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 11/13/2026
+    Description: Template to show a joke
+-->
+{% extends 'dadjokes/base.html' %}
+
+{% block content %}
+<h1>Dad Joke</h1>
+<div class="card">
+    <p>{{ joke.text }}</p>
+    <p><em>Contributed by {{ joke.name }} on {{ joke.timestamp }}</em></p>
+</div>
+{% endblock %}

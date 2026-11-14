@@ -1,0 +1,19 @@
+<!--
+    File: show_all_pictures.html
+    Author: Khai Duc Pham (khaipduc@bu.edu), 11/13/2026
+    Description: Template to show all pictures
+-->
+{% extends 'dadjokes/base.html' %}
+
+{% block content %}
+<h1>All Silly Pictures</h1>
+
+{% for picture in pictures %}
+<div class="card">
+    <img src="{{ picture.image_url }}" alt="Silly picture">
+    <p><em>Contributed by {{ picture.name }} on {{ picture.timestamp }}</em></p>
+    <a href="{% url 'show_picture' picture.pk %}">View this picture</a>
+</div>
+<hr>
+{% endfor %}
+{% endblock %}

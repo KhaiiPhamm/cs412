@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-bc1pq_d_z-6yhse1a13e=7ylhz+ee8&3yvw*(hkp8huzr4o#6-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cs-webapps.bu.edu','127.0.0.1']
+ALLOWED_HOSTS = ['cs-webapps.bu.edu','127.0.0.1','*']
 
 
 # Application definition
@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'mini_insta',
     'marathon_analytics',
     'voter_analytics',
+    'rest_framework',
+    'dadjokes',
 ]
 
 MIDDLEWARE = [
@@ -147,4 +149,9 @@ MAILERS = {
     'default': {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
 }

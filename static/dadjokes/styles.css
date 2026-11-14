@@ -1,0 +1,58 @@
+body {
+    background-color: #fff;
+    color: slategray;
+    font-family: arial;
+    max-width: 960px;
+    margin: 20px auto;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+    background: aliceblue;
+    color: darkblue;
+    margin: 0;
+    padding: 5px;
+}
+
+a, a:visited {
+    color: slategrey;
+    text-decoration: none;
+}
+
+a:hover {
+    color: darkblue;
+    background-color: white;
+}
+
+footer {
+    width: 100%;
+    background: aliceblue;
+    position: fixed;
+    bottom: 0;
+    padding: 5px;
+}
+
+footer a {
+    margin: 0 10px;
+}
+
+.wrapper {
+    border: 2px solid;
+    padding: 10px 10px 50px 10px;
+}
+
+.wrapper h1 {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.card {
+    border: 1px solid darkblue;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 300px;
+}
